@@ -1,15 +1,15 @@
 services:
   - type: web
-    name: vsdms-app
-    runtime: node
-    plan: free
-    branch: main
-    buildCommand: npm install && npm run build
-    startCommand: npm run preview
+    name: vsdms-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
       - key: NODE_ENV
         value: production
-      - key: VITE_SUPABASE_URL
-        sync: false
-      - key: VITE_SUPABASE_ANON_KEY
-        sync: false
